@@ -39,3 +39,7 @@ test:
     paths:
       - build
       - .gradle
+  artifacts:
+    paths:
+      - app/build/reports/tests/
+    expire_in: 1 week
