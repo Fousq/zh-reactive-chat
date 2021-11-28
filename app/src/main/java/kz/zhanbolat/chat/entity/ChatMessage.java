@@ -3,7 +3,7 @@ package kz.zhanbolat.chat.entity;
 public class ChatMessage {
     private Long id;
     private String text;
-    private int status;
+    private ChatMessageStatus status;
     private Long userId;
 
     public Long getId() {
@@ -22,11 +22,11 @@ public class ChatMessage {
         this.text = text;
     }
 
-    public int getStatus() {
+    public ChatMessageStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(ChatMessageStatus status) {
         this.status = status;
     }
 
