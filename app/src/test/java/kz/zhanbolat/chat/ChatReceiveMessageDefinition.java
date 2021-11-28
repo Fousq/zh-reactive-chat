@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import kz.zhanbolat.chat.entity.ChatMessage;
+import kz.zhanbolat.chat.entity.ChatMessageStatus;
 import kz.zhanbolat.chat.service.ChatService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,7 +17,7 @@ public class ChatReceiveMessageDefinition {
     @Given("new not empty message")
     public void newNotEmptyMessage() {
         message = new ChatMessage();
-        message.setStatus(0);
+        message.setStatus(ChatMessageStatus.NEW);
         message.setText("test");
         message.setUserId(1L);
     }
@@ -28,7 +29,7 @@ public class ChatReceiveMessageDefinition {
 
     @Then("return message with status 'Send'")
     public void returnMessageWithStatusSend() {
-        assertEquals(1, processedMessage.getStatus());
+        assertEquals(ChatMessageStatus.SEND, processedMessage.getStatus());
         assertEquals(message.getText(), processedMessage.getText());
         assertEquals(message.getUserId(), processedMessage.getUserId());
     }
